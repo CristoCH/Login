@@ -46,7 +46,8 @@ public class LoginView extends VBox {
         root.addRow(0, userLabel, userText);
         root.setPadding(new Insets(5));
         root.addRow(1, passLabel, passText);
-        root.addRow(2, accederButton, cancelarButton);
+        root.addRow(2, usarCb);
+        root.addRow(3, accederButton, cancelarButton);
 
         ColumnConstraints[] constraintView = {new ColumnConstraints(), new ColumnConstraints()};
         constraintView[0].setHalignment(HPos.CENTER);
