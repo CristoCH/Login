@@ -11,14 +11,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
         loginView = new LoginView();
-
-        Scene loginScene = new Scene(loginView, 320, 200);
-        Stage loginStage = new Stage();
-        loginStage.setTitle("Login.fxml");
-        loginStage.setScene(loginScene);
-        loginStage.show();
 
     }
 
