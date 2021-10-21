@@ -12,3 +12,5 @@ buildNumber.properties
 .project
 .settings
 .idea
+**/.idea/workspace.xml
+**/.idea/tasks.xml
