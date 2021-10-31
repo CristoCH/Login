@@ -1,12 +1,9 @@
 package dad.login.ui;
 
-import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
 
 public class LoginView extends VBox {
 
@@ -18,7 +15,7 @@ public class LoginView extends VBox {
     private Button accederButton;
     private Button cancelarButton;
 
-    public LoginView(){
+    public LoginView() {
         super();
 
         userText = new TextField();
@@ -28,54 +25,41 @@ public class LoginView extends VBox {
         passText.setPrefColumnCount(12);
         passText.setPromptText("Contraseña del usuario");
 
+
         userLabel = new Label("Usuario: ");
-        //userLabel.setPrefWidth(70);
+
         passLabel = new Label("Contraseña: ");
-        //passLabel.setPrefWidth(70);
+
         usarCb = new CheckBox("Usar LDAP");
 
         accederButton = new Button("Acceder");
         cancelarButton = new Button("Cancelar");
 
-        GridPane root = new GridPane();
-        root.setGridLinesVisible(false);
-        root.setVgap(5);
-        root.setHgap(5);
-        root.setAlignment(Pos.CENTER);
-        root.setPadding(new Insets(5));
-        root.addRow(0, userLabel, userText);
-        root.setPadding(new Insets(5));
-        root.addRow(1, passLabel, passText);
-        root.addRow(2, usarCb);
-        root.addRow(3, accederButton, cancelarButton);
+        GridPane panel = new GridPane();
+        panel.setPadding(new Insets(5));
+        panel.setHgap(5);
+        panel.setVgap(5);
+        panel.addRow(0, userLabel, userText);
+        panel.addRow(1, passLabel, passText);
+        panel.addRow(2);
+        panel.add(usarCb, 1, 2);
 
-        ColumnConstraints[] constraintView = {new ColumnConstraints(), new ColumnConstraints()};
-        constraintView[0].setHalignment(HPos.CENTER);
-        constraintView[1].setFillWidth(false);
-        constraintView[1].setHgrow(Priority.NEVER);
+        ColumnConstraints[] constraintColumn = {new ColumnConstraints(), new ColumnConstraints()};
+        panel.getColumnConstraints().setAll(constraintColumn);
 
-        root.getColumnConstraints().setAll(constraintView);
+        RowConstraints[] constraintRow = {new RowConstraints(), new RowConstraints()};
+        panel.getRowConstraints().setAll(constraintRow);
 
-        Scene scene = new Scene(root, 320, 200);
-
-        Stage loginStage = new Stage();
-        loginStage.setTitle("Login.fxml");
-        loginStage.setScene(scene);
-        loginStage.show();
-
-        /*HBox userBox = new HBox(5, userLabel, userText);
-        userBox.setSpacing(5);
-        HBox passBox = new HBox(5, passLabel, passText);
-        passBox.setSpacing(5);
         HBox buttonBox = new HBox(5, accederButton, cancelarButton);
+        buttonBox.setSpacing(5);
+        buttonBox.setFillHeight(false);
+        buttonBox.setAlignment(Pos.CENTER);
 
-        setSpacing(5);
-        setFillWidth(false);
-        setAlignment(Pos.CENTER);
+        this.setSpacing(5);
+        this.setFillWidth(false);
+        this.setAlignment(Pos.CENTER);
 
-        getChildren().addAll(userBox,passBox, usarCb, buttonBox);*/
-
-
+        this.getChildren().addAll(panel, buttonBox);
 
     }
 
